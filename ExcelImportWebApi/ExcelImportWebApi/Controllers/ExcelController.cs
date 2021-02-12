@@ -26,7 +26,7 @@ namespace ExcelImportWebApi.Controllers
 
                 };
 
-                return new ObjectResult(response);
+                return Ok(response);
             }
             catch (System.Exception e)
             {
@@ -38,7 +38,7 @@ namespace ExcelImportWebApi.Controllers
 
                 };
 
-                return new ObjectResult(response);
+                return BadRequest(response);
             }
         }
     }
