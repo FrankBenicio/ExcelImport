@@ -53,7 +53,9 @@ namespace Histories.ProductHistory
 
                 int cellCount = headerRow.LastCellNum;
 
-                for (int i = (sheet.FirstRowNum + 1); i <= sheet.LastRowNum; i++) //Read Excel File
+
+                //Read Excel File
+                for (int i = (sheet.FirstRowNum + 1); i <= sheet.LastRowNum; i++)
                 {
 
                     IRow row = sheet.GetRow(i);
@@ -125,8 +127,9 @@ namespace Histories.ProductHistory
             }
             else
             {
-                XSSFWorkbook hssfwb = new XSSFWorkbook(stream); //This will read 2007 Excel format  
-                sheet = hssfwb.GetSheetAt(0); //get first sheet from workbook   
+                //This will read 2007 Excel format  
+                XSSFWorkbook hssfwb = new XSSFWorkbook(stream); 
+                sheet = hssfwb.GetSheetAt(0); 
             }
 
             return sheet;
