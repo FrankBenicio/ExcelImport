@@ -9,7 +9,9 @@ export class AppService {
   constructor(private http: HttpClient) { }  
       httpOptions = {  
         headers: new HttpHeaders({  
-          'Content-Type': 'application/json'  
+          'Content-Type': 'multipart/form-data',
+          'Accept': 'application/json',
+          'Access-Control-Allow-Origin:': '*',
         })  
       }          
       postData(file : any){  

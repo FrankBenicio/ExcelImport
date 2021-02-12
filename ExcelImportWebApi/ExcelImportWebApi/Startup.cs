@@ -30,6 +30,16 @@ namespace ExcelImportWebApi
         public void ConfigureServices(IServiceCollection services)
         {
 
+
+            services.AddCors(options =>
+            {
+                options.AddPolicy(name: "AngulaProject",
+                                  builder =>
+                                  {
+                                      builder.WithOrigins("http://localhost:9087");
+                                  });
+            });
+
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
@@ -53,11 +63,16 @@ namespace ExcelImportWebApi
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "ExcelImportWebApi v1"));
             }
 
+
             app.UseHttpsRedirection();
 
             app.UseRouting();
 
+            app.UseCors("AngulaProject");
+
             app.UseAuthorization();
+
+
 
             app.UseEndpoints(endpoints =>
             {
