@@ -1,12 +1,30 @@
-<form class="app-form" [formGroup]="form">
-  <mat-form-field class="app-form-control">
-    <ngx-mat-file-input placeholder="Anexos" formControlName="anexos"></ngx-mat-file-input>
-    <mat-icon matSuffix>folder</mat-icon>
-  </mat-form-field>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
 
-  <button (click)="onSubmit()">Salvar</button>
-</form>
+    </div>
+  </div>   
+      <h3>Upload de planilha de excel</h3>  
+      <div class="form-group"> 
 
-
-
-<router-outlet></router-outlet>
+        <label>Arquivo</label>
+        <input type="file" class="form-control" (change)="onUpload($event)">           
+    </div>  
+    
+  <div class="row mt-4">  
+    <table class="table table-striped">  
+      <tr>    
+        <td>Data de entrega</td>  
+        <td>Produto</td>  
+        <td>Quantidade</td>  
+        <td>Valor unitário</td>  
+      </tr>  
+      <tr *ngFor="let d of data">  
+        <td>{{d.DeliveryDate}}</td>  
+        <td>{{d.Name}}</td>  
+        <td>{{d.Quantity}}</td>  
+        <td>{{d.PriceUnit}}</td>
+      </tr>  
+    </table>  
+  </div>     
+</div> 
